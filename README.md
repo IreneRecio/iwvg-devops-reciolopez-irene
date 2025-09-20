@@ -12,8 +12,7 @@
 ### Estado del código
 [![Devops](https://github.com/IreneRecio/iwvg-devops-reciolopez-irene/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/IreneRecio/iwvg-devops-reciolopez-irene/actions/workflows/continuous-integration.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=IreneRecio_iwvg-devops-reciolopez-irene&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=IreneRecio_iwvg-devops-reciolopez-irene)
-[![Render broken](https://iwvg-devops-latest.onrender.com/version-badge)](https://iwvg-devops-latest.onrender.com/swagger-ui.html)
-
+[![Render broken](https://iwvg-devops-reciolopez-irene.onrender.com/version-badge)](https://iwvg-devops-reciolopez-irene.onrender.com/swagger-ui.html)
 
 ### Tecnologías necesarias
 `Java` `Maven` `GitHub` `GitHub Actions` `Sonarcloud` `Slack` `Spring-Boot` `GitHub Packages` `Docker` `OpenAPI`
