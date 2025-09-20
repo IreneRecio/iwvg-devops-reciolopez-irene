@@ -4,7 +4,6 @@ on:
     branches: ['master']
 
 env:
-  REPOSITORY: ${{ github.repository }} # <user>/<repo>
   GHCR_URL: ghcr.io # GitHub Container Registry
 
 jobs:
@@ -29,6 +28,11 @@ jobs:
           echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
           echo "ARTIFACT=$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)" >> $GITHUB_ENV
 
+      - name: 📝 Convert repository name to lowercase
+        run: |
+          REPO_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
+
       # 1º Crear Token de Acceso Personal:
       #    GitHub → Settings → Developer settings → Personal access tokens → Generate new token (classic)
       #    Permisos mínimos: write:packages, read:packages, delete:packages, repo
@@ -49,8 +53,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.GHCR_URL }}/${{ env.REPOSITORY }}:${{ env.VERSION }}
-            ${{ env.GHCR_URL }}/${{ env.REPOSITORY }}:latest
+            ${{ env.GHCR_URL }}/${{ env.REPO_NAME }}:${{ env.VERSION }}
+            ${{ env.GHCR_URL }}/${{ env.REPO_NAME }}:latest
 
       # 🌐 Render Deployment
       # 1. En Render: Web Service → Settings → Deploy Hook → copiar el token
