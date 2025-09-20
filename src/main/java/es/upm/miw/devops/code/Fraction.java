@@ -62,4 +62,31 @@ public class Fraction {
                 '}';
     }
 
+    public Boolean isProper() {
+        return Math.abs(numerator) < Math.abs(denominator);
+    }
+
+    public Boolean isImproper() {
+        return Math.abs(numerator) > Math.abs(denominator);
+    }
+
+    public Fraction add(Fraction f2) {
+        int denominatorRes = denominator * f2.getDenominator();
+        int numeratorRes = numerator * f2.getDenominator() + f2.getNumerator() * denominator;
+        return new Fraction(numeratorRes, denominatorRes);
+    }
+
+    public Fraction multiply(Fraction f2) {
+        return new Fraction(
+                numerator * f2.getNumerator(),
+                denominator * f2.getDenominator()
+        );
+    }
+
+    public Fraction divide(Fraction f2){
+        int numeratorRes = numerator * f2.getDenominator();
+        int denominatorRes = denominator * f2.getNumerator();
+        return new Fraction(numeratorRes, denominatorRes);
+    }
+
 }
