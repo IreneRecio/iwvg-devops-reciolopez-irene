@@ -42,4 +42,59 @@ public class FractionTest {
         assertThat(fraction.toString())
                 .isEqualTo("Fraction{numerator=4, denominator=7}");
     }
+
+    @Test
+    void testIsProperTrue() {
+        Fraction fraction = new Fraction(3, 5);
+        assertThat(fraction.isProper()).isTrue();
+    }
+
+    @Test
+    void testIsProperFalse() {
+        Fraction fraction = new Fraction(7, 4);
+        assertThat(fraction.isProper()).isFalse();
+    }
+
+    @Test
+    void testIsImproperTrue() {
+        Fraction fraction = new Fraction(7, 4);
+        assertThat(fraction.isImproper()).isTrue();
+    }
+
+    @Test
+    void testIsImproperFalse() {
+        Fraction fraction = new Fraction(3, 5);
+        assertThat(fraction.isImproper()).isFalse();
+    }
+
+    @Test
+    void testAddFractions() {
+        Fraction f1 = new Fraction(1, 2);
+        Fraction f2 = new Fraction(1, 3);
+        Fraction result = f1.add(f2);
+
+        assertThat(result.getNumerator()).isEqualTo(5);
+        assertThat(result.getDenominator()).isEqualTo(6);
+    }
+
+    @Test
+    void testMultiplyFractions() {
+        Fraction f1 = new Fraction(2, 3);
+        Fraction f2 = new Fraction(3, 4);
+        Fraction result = f1.multiply(f2);
+
+        assertThat(result.getNumerator()).isEqualTo(6);
+        assertThat(result.getDenominator()).isEqualTo(12);
+    }
+
+    @Test
+    void testDivideFractions() {
+        Fraction f1 = new Fraction(2, 3);
+        Fraction f2 = new Fraction(4, 5);
+        Fraction result = f1.divide(f2);
+
+        assertThat(result.getNumerator()).isEqualTo(10);
+        assertThat(result.getDenominator()).isEqualTo(12);
+    }
+
 }
