@@ -14,4 +14,12 @@ public class SearchesTest {
                 .containsExactly(2.0, -0.2, 0.5, 1.3333333333333333);
     }
 
+    //Method 0
+    @Test
+    void testFindUserFamilyNameInitialBySomeProperFraction() {
+        assertThat(new Searches().findUserFamilyNameInitialBySomeProperFraction().toList())
+                .containsExactly("F.", "B.", "L.", "B.");
+    }
+
+
 }
