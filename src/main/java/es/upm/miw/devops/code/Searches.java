@@ -26,7 +26,7 @@ public class Searches {
                 .filter(user -> id.equals(user.getId()))
                 .flatMap(user -> user.getFractions().stream())
                 .filter(Objects::nonNull)
-                .reduce(new Fraction(), Fraction::add );
+                .reduce(new Fraction(), Fraction::add);
     }
 
     //Method 6
