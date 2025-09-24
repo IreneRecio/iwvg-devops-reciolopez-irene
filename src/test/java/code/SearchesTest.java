@@ -1,5 +1,6 @@
 package code;
 
+import es.upm.miw.devops.code.Fraction;
 import es.upm.miw.devops.code.Searches;
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +20,13 @@ public class SearchesTest {
     void testFindUserFamilyNameInitialBySomeProperFraction() {
         assertThat(new Searches().findUserFamilyNameInitialBySomeProperFraction().toList())
                 .containsExactly("F.", "B.", "L.", "B.");
+    }
+
+    //Method e
+    @Test
+    void testFindFractionAdditionByUserId() {
+        assertThat(new Searches().findFractionAdditionByUserId("1")
+                .equals(new Fraction(3, 1)));
     }
 
 
