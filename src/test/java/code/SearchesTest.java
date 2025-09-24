@@ -29,5 +29,15 @@ public class SearchesTest {
                 .equals(new Fraction(3, 1)));
     }
 
+    //Method 6
+    @Test
+    void testFindDecimalImproperFractionByUserName() {
+        // Oscar tiene fracciones: [0/1, 1/1, 2/1] => Improprias: 2/1
+        assertThat(new Searches().findDecimalImproperFractionByUserName("Oscar").toList())
+                .isNotEmpty()
+                .contains(2.0)
+                .allMatch(value -> value > 1.0);
+    }
+
 
 }
