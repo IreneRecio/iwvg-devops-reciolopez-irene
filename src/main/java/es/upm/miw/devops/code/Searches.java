@@ -29,4 +29,13 @@ public class Searches {
                 .reduce(new Fraction(), Fraction::add );
     }
 
+    //Method 6
+    public Stream<Double> findDecimalImproperFractionByUserName(String name) {
+        return new UsersDatabase().findAll()
+                .filter(user -> user.getName().equals(name))
+                .flatMap(user -> user.getFractions().stream())
+                .filter(Fraction::isImproper)
+                .map(f -> (double) f.getNumerator() / f.getDenominator());
+    }
+
 }
